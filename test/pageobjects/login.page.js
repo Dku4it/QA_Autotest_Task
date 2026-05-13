@@ -1,12 +1,6 @@
-import { $ } from '@wdio/globals'
 import Page from './page.js';
 
-
- // sub page containing specific selectors and methods for a specific page
-
 class LoginPage extends Page {
-
-// define selectors
 
     get userName() { return $('[data-test="username"]'); }
     get password() { return $('[data-test="password"]'); }
@@ -15,7 +9,6 @@ class LoginPage extends Page {
     get Xicon1() { return $('#login_button_container > div > form > div:nth-child(1) > svg'); }
     get Xicon2() { return $('#login_button_container > div > form > div:nth-child(2) > svg'); }
 
-
 // quick log in
     async login(user, pass) {
         await this.userName.setValue(user);
@@ -23,10 +16,22 @@ class LoginPage extends Page {
         await this.loginBtn.click();
     }
 
-    
-    open () {
+    async open () {
         return super.open('');
+    }
+
+    async enterUserName(userName) {
+        await this.userName.setValue(userName);
+    }
+
+    async enterPassword(password) {
+        await this.password.setValue(password);
+    }
+
+    async clickLogin() {
+        await this.loginBtn.click();
     }
 }
 
-export default new LoginPage();
+const loginPage = new LoginPage();
+export default loginPage;
