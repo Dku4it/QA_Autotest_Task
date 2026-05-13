@@ -29,7 +29,6 @@ To run a specific test file:
 npx wdio run wdio.conf.js --spec ./test/specs/DD_Test001.e2e.js
 📊 Reports
 After the tests are finished, you can find the results in the console.
-(Если ты прикрутил Allure Report, добавь этот пункт):
 To generate and open the visual report:
 
 npm run report
