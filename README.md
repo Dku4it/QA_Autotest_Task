@@ -1,4 +1,4 @@
-**<< Automated UI Tests for SauceDemo v.2.4.2>>**
+**<< Automated UI Tests for SauceDemo v.2.4.3>>**
 
 
 
@@ -28,7 +28,7 @@ First, download the project to your local machine:
 
 git clone https://github.com/Dku4it/QA\_Autotest\_Task.git
 
-cd QA\_Autotest\_Task.git
+cd QA\_Autotest\_Task
 
 2\. Install dependencies
 
