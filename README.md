@@ -1,4 +1,4 @@
-**<< Automated UI Tests for SauceDemo v.2.4.1>>**
+**<< Automated UI Tests for SauceDemo v.2.4.2>>**
 
 
 
