@@ -10,8 +10,8 @@ describe('Inventory Suite', () => {
 
     it('TestCase5: Saving the card after logout', async () => {
         // Precondition: User is on the logined into account. User is on the inventory page
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')  // Check URL
-        
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')
+
         // 1 Click on the "Add to cart" button near any product
         // Expected: The number near the cart at the top right increase by 1, product is added to cart
         await inventoryPage.addBackpackToCart();
@@ -26,14 +26,14 @@ describe('Inventory Suite', () => {
         // 3 Click on the "Logout" button
         // Expected: User are redirecred to the "Login" page. "Username" and "Password" field are empty
         await inventoryPage.clickLogout();
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/')  // Check URL
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/')
         await expect(loginPage.userName).toHaveValue('');
         await expect(loginPage.password).toHaveValue('');
 
         // 4 Login to the account using the same valid login and password
         // Expected: User is redirected to the inventory page. Products and cart are displayed
         await loginPage.login('standard_user', 'secret_sauce');
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')  // Check URL
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')
 
         // 5 Click on the "Cart" button at the top right corner
         // Expected: Cart page is displayed, product are the same as was added at step 1
@@ -48,7 +48,7 @@ describe('Inventory Suite', () => {
 
     it('TestCase6: Sorting', async () => {
         // Precondition: User is on the logined into account. User is on the inventory page
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')  // Check URL
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')
 
         // 1 Choose one of the sorting options {1.Price (low to high), 2.Price (high to low), 3.Name (A to Z), 4. Name (Z to A)}
         // Expected: All products was sorted due choosed sorting
@@ -77,8 +77,8 @@ describe('Inventory Suite', () => {
 
     it('TestCase7: Footer Links', async () => {
         // Precondition: User is on the logined into account. User is on the inventory page
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')  // Check URL
-        
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')
+
         // 1 Click on the "Twitter" icon on the footer
         // Expected: Twitter of the company is opened on the new tab
         let mainWindow = await inventoryPage.openFooterLink(inventoryPage.icoTwitter);
@@ -99,5 +99,5 @@ describe('Inventory Suite', () => {
         await expect(browser).toHaveUrl(/linkedin\.com\/company\/sauce-labs/);
         await inventoryPage.closeNewTabAndReturn(mainWindow);
         await expect(browser).toHaveUrl(/inventory\.html/);
-    }) 
+    })
 })

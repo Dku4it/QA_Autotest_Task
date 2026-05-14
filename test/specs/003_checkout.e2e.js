@@ -10,8 +10,11 @@ describe('Checkout Suite', () => {
 
     it('TestCase8: Valid Checkout', async () => {
         // Precondition: User is on the logined into account. User is on the inventory page
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')  // Check URL
-        
+        const randomFirstName = await inventoryPage.getRandomFirstName();
+        const randomLastName = await inventoryPage.getRandomLastName();
+        const randomZipCode = await inventoryPage.getRandomZipCode();
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')
+
         // 1 Click on the "Add to cart" button near any product
         // Expected: Number near the cart at the top right increase by 1, product is added to cart
         const productName = await inventoryPage.firstItemName.getText();
@@ -36,25 +39,24 @@ describe('Checkout Suite', () => {
 
         // 4 Fill the "First Name" field with valid data - Any random First Name
         // Expected: Data is entered to the field
-        await inventoryPage.firstName.setValue('John');
-        await expect(inventoryPage.firstName).toHaveValue('John');
+        await inventoryPage.firstName.setValue(randomFirstName);
+        await expect(inventoryPage.firstName).toHaveValue(randomFirstName);
 
         // 5 Fill the "Second Name" field with valid data - Any random Second Name
         // Expected: Data is entered to the field
-        await inventoryPage.lastName.setValue('Smith');
-        await expect(inventoryPage.lastName).toHaveValue('Smith');
+        await inventoryPage.lastName.setValue(randomLastName);
+        await expect(inventoryPage.lastName).toHaveValue(randomLastName);
 
         // 6 Fill the "Postal Code" field with valid data - Any random Postal Code
         // Expected: Data is entered to the field
-        await inventoryPage.postalCode.setValue('12345');
-        await expect(inventoryPage.postalCode).toHaveValue('12345');
+        await inventoryPage.postalCode.setValue(randomZipCode);
+        await expect(inventoryPage.postalCode).toHaveValue(randomZipCode);
 
         // 7 Click on the "Continue" button
         // Expected: User is redirected to the "Overview" page, Products from step 1 is displayed. Total price = price of products from step 1
         await inventoryPage.continueBtn.click();
         await expect(inventoryPage.overviewItemName).toHaveText(productName);
         await expect(inventoryPage.overviewItemPrice).toHaveText(productPrice);
-        // check total price
         const itemTotalText = await inventoryPage.itemTotalLabel.getText();
         await expect(itemTotalText).toContain(productPrice);
 
@@ -72,7 +74,7 @@ describe('Checkout Suite', () => {
 
     it.skip('TestCase9: Checkout without products (functional not realised!)', async () => {
         // Precondition: User is on the logined into account. User is on the inventory page
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')  // Check URL
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')
 
         // 1 Click on the "Cart" button at the top right corne
         // Expected: Cart page is displayed, products are not displayed
@@ -90,5 +92,5 @@ describe('Checkout Suite', () => {
         // SauceDemo allows checkout with empty cart. 
         // It's not possible to create autotest without realised functional.
         // No "Cart is empty" message is displayed.
-     })    
+    })
 })

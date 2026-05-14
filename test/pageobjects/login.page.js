@@ -9,28 +9,19 @@ class LoginPage extends Page {
     get Xicon1() { return $('#login_button_container > div > form > div:nth-child(1) > svg'); }
     get Xicon2() { return $('#login_button_container > div > form > div:nth-child(2) > svg'); }
 
-// quick log in
     async login(user, pass) {
         await this.userName.setValue(user);
         await this.password.setValue(pass);
         await this.loginBtn.click();
     }
 
-    async open () {
-        return super.open('');
-    }
+    async open() { return super.open(''); }
 
-    async enterUserName(userName) {
-        await this.userName.setValue(userName);
-    }
+    async enterUserName(userName) { await this.userName.setValue(userName); }
 
-    async enterPassword(password) {
-        await this.password.setValue(password);
-    }
+    async enterPassword(password) { await this.password.setValue(password); }
 
-    async clickLogin() {
-        await this.loginBtn.click();
-    }
+    async clickLogin() { await this.loginBtn.click(); }
 }
 
 const loginPage = new LoginPage();

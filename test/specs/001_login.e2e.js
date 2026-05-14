@@ -84,17 +84,17 @@ describe('Login Suite', () => {
         // Precondition: User is on the logined into account. User is on the inventory page
         await loginPage.open()
         await loginPage.login('standard_user', 'secret_sauce');
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')  // Check URL
-        
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html')
+
         // 1 Click on the Burger button at the top left corner
         // Expected: Menu is expanded, 4 items are displayed
         await inventoryPage.clickBurgerMenu();
         await expect($$('.bm-item')).toBeElementsArrayOfSize(4);
-        
+
         // 2 Click on the "Logout" button
         // Expected: User are redirecred to the Login page, "Username" and "Password" field are empty
         await inventoryPage.clickLogout();
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/')  // Check URL
+        await expect(browser).toHaveUrl('https://www.saucedemo.com/')
         await expect(loginPage.userName).toHaveValue('');
         await expect(loginPage.password).toHaveValue('');
     })

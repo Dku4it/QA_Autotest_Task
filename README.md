@@ -1,38 +1,44 @@
-**<< Automated UI Tests for SauceDemo v.2.4.3>>**
+**Automated UI Tests for SauceDemo (v.2.5.2)**
 
 
 
-This repository contains automated E2E (End-to-End) tests for the SauceDemo website. The project is built using WebdriverIO and JavaScript.
+This repository contains automated E2E (End-to-End) tests for the SauceDemo website. The project is built using WebdriverIO and JavaScript with a focus on stability and clean code.
 
 
 
-⚙️ **Prerequisites**
+📝 **Features**
 
-Before running the tests, make sure you have the following installed:
+**Authentication:** Login with different user roles and error handling.
 
-Node.js (Version 16 or higher)
+**Product Management:** Adding items to the cart and verifying selection.
 
-npm (Comes with Node.js)
+**Sorting Logic:** Validating product sorting by name and price.
 
-WebdriverIO
+**Dynamic Data:** Using Faker.js to generate unique user information for checkout.
 
-Google Chrome browser
+**Navigation:** Testing footer social links and external redirects.
+
+
+
+**⚙️ Prerequisites**
+
+Before running the tests, ensure you have:
+
+Node.js (v18 or higher recommended)
+
+Google Chrome browser installed
 
 
 
 🚀 **Getting Started**
 
-1\. Clone the repository
-
-First, download the project to your local machine:
+**1. Clone the repository**
 
 git clone https://github.com/Dku4it/QA\_Autotest\_Task.git
 
 cd QA\_Autotest\_Task
 
-2\. Install dependencies
-
-Install all necessary packages and libraries:
+**2. Install dependencies**
 
 npm install
 
@@ -44,17 +50,17 @@ To execute all test cases, use the following command:
 
 npx wdio
 
-To run a specific test file:
+To run a specific test suite (e.g., Login):
 
-npx wdio run wdio.conf.js --spec ./test/specs/DD\_Test001.e2e.js
+nnpx wdio --spec ./test/specs/001\_login.e2e.js
 
 
 
 📊 **Reports**
 
-After the tests are finished, you can find the results in the console.
+Test results are displayed in the console via Spec Reporter.
 
-To generate and open the visual report:
+If you have Allure Reporter configured, use:
 
 npm run report
 
@@ -62,11 +68,15 @@ npm run report
 
 🛠 **Tech Stack**
 
-Framework: WebdriverIO
+**Framework:** WebdriverIO
 
-Pattern: Page Object Model (POM)
+**Design Pattern:** Page Object Model (POM)
 
-Language: JavaScript
+**Language:** JavaScript (ES6+)
 
-Assertion Library: Expect (WDIO)
+**Data Generation:** Faker.js
+
+**Assertions:** Expect (WDIO)
+
+
 
