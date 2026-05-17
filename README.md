@@ -1,4 +1,4 @@
-**Automated UI Tests for SauceDemo (v.2.5.2)**
+**Automated UI Tests for SauceDemo (v.2.6.1)**
 
 
 
@@ -77,6 +77,4 @@ npm run report
 **Data Generation:** Faker.js
 
 **Assertions:** Expect (WDIO)
-
-
 

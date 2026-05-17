@@ -17,11 +17,39 @@ class LoginPage extends Page {
 
     async open() { return super.open(''); }
 
-    async enterUserName(userName) { await this.userName.setValue(userName); }
+    async enterUserName(userName) {
+        await this.userName.setValue(userName);
+        await expect(this.userName).toHaveValue(userName);
+    }
 
-    async enterPassword(password) { await this.password.setValue(password); }
+    async enterPassword(password) {
+        await this.password.setValue(password);
+        await expect(this.password).toHaveValue(password);
+        await expect(this.password).toHaveAttribute('type', 'password');
+    }
 
     async clickLogin() { await this.loginBtn.click(); }
+
+    async checkErrorStatus(errormsg) {
+        await expect(this.Xicon1).toBeDisplayed();
+        await expect(this.Xicon2).toBeDisplayed();
+        await expect(this.userName).toHaveElementClass('input_error');
+        await expect(this.password).toHaveElementClass('input_error');
+        await expect(this.errorBox).toBeDisplayed();
+        await expect(this.errorBox).toHaveText(errormsg);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 const loginPage = new LoginPage();
